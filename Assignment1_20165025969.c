@@ -171,7 +171,6 @@ int AvgBenefit (Employee *arr, char *department, int arr_cnt)
     if (cnt == 0) {
         cnt++;
     }
-
     avg = sum / cnt;
 
     return avg;
