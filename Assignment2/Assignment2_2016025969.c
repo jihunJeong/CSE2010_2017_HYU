@@ -92,7 +92,7 @@ Node FindPrev (List list, int fnum) {
 
     while (cnode != NULL) {
         if (cnode->value == fnum) {
-            return pnode;
+            break;
         }
         
         pnode = pnode->next;
