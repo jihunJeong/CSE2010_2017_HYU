@@ -17,7 +17,6 @@ int IsEmpty (Stack s);
 void Push (char x, Stack s);
 char Pop (Stack s);
 void DeleteStack (Stack s);
-//void PrintStack(Stack s);
 
 int main()
 {
@@ -36,13 +35,14 @@ int main()
 				DeleteStack(s);
 				return 0;
 			} else if (input == '#') {
-				if (s->top == -1) {
+				if (s->top == -1 && chk == 0) {
 					printf("right. ");
 				} else {
 					printf("wrong. ");
 				}
 
-				//MakeEmptyStack(s);
+				MakeEmptyStack(s);
+
 				for (i; i < cnt; i++) {
 					printf("%c ", out[i]);
 				}
@@ -76,7 +76,9 @@ int main()
 				}
 			}
 		}
+		DeleteStack(s);
 	}
+	return 0;
 }
 
 Stack CreateStack () {
@@ -90,6 +92,14 @@ Stack CreateStack () {
 }
 
 Stack MakeEmptyStack (Stack s) {
+	int i;
+
+	s->top = -1;
+	
+	for (i = 0; i < sizeof(s->array); i++) {
+		s->array[i] = NULL;
+	}
+
 	return s;
 }
 
@@ -120,5 +130,5 @@ char Pop (Stack s) {
 }
 
 void DeleteStack (Stack s) {
-
+	free(s);
 }
